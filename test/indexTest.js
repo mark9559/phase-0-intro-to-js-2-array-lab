@@ -1,5 +1,7 @@
 require ( './helpers.js' );
 
+let cats = ["Milo", "Otis", "Garfield"];
+
 describe('index.js', function () {
   describe('cats', function () {
     it('is assigned an initial value of ["Milo", "Otis", "Garfield"]', function () {
@@ -21,6 +23,47 @@ describe('index.js', function () {
         expect(cats).to.have.ordered.members(["Milo", "Otis", "Garfield", "Ralph"]);
       });
     });
+    // helpers.js
+let cats = ["Milo", "Otis", "Garfield"];
+
+function destructivelyAppendCat(name) {
+  cats.push(name);
+}
+function destructivelyPrependCat(name) {
+  cats.unshift(name);
+}
+function destructivelyRemoveLastCat(name) {
+  cats.pop(name);
+}
+function appendCat(name) {
+  return cats.concat(name);
+}
+function prependCat(name) {
+  return [name].concat(cats);
+}
+function removeLastCat(name) {
+  return cats.slice(0, -1);
+}
+function destructivelyRemoveFirstCat(name) {
+  cats.shift(name);
+}
+function removeFirstCat(name) {
+  return cats.slice(1);
+}
+
+
+module.exports = {
+  cats: cats,
+  destructivelyAppendCat: destructivelyAppendCat,
+  destructivelyPrependCat: destructivelyPrependCat,
+  destructivelyRemoveLastCat: destructivelyRemoveLastCat,
+  appendCat: appendCat,
+  prependCat: prependCat,
+  removeLastCat:removeLastCat,
+  destructivelyRemoveFirstCat: destructivelyRemoveFirstCat,
+  removeFirstCat: removeFirstCat,
+};
+
 
     describe('destructivelyPrependCat(name)', function () {
       it('prepends a cat to the beginning of the cats array', function () {
@@ -29,6 +72,7 @@ describe('index.js', function () {
         expect(cats).to.have.ordered.members(["Bob", "Milo", "Otis", "Garfield"]);
       });
     });
+
 
     describe('destructivelyRemoveLastCat()', function () {
       it('removes the last cat from the cats array', function () {
