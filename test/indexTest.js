@@ -24,45 +24,6 @@ describe('index.js', function () {
       });
     });
     // helpers.js
-let cats = ["Milo", "Otis", "Garfield"];
-
-function destructivelyAppendCat(name) {
-  cats.push(name);
-}
-function destructivelyPrependCat(name) {
-  cats.unshift(name);
-}
-function destructivelyRemoveLastCat(name) {
-  cats.pop(name);
-}
-function appendCat(name) {
-  return cats.concat(name);
-}
-function prependCat(name) {
-  return [name].concat(cats);
-}
-function removeLastCat(name) {
-  return cats.slice(0, -1);
-}
-function destructivelyRemoveFirstCat(name) {
-  cats.shift(name);
-}
-function removeFirstCat(name) {
-  return cats.slice(1);
-}
-
-
-module.exports = {
-  cats: cats,
-  destructivelyAppendCat: destructivelyAppendCat,
-  destructivelyPrependCat: destructivelyPrependCat,
-  destructivelyRemoveLastCat: destructivelyRemoveLastCat,
-  appendCat: appendCat,
-  prependCat: prependCat,
-  removeLastCat:removeLastCat,
-  destructivelyRemoveFirstCat: destructivelyRemoveFirstCat,
-  removeFirstCat: removeFirstCat,
-};
 
 
     describe('destructivelyPrependCat(name)', function () {
